@@ -11,7 +11,7 @@ class Dropovi(db.Model):
 	fulltitle = db.Column('fulltitle', db.String(30))
 	shorttitle = db.Column('shorttitle', db.String(4))
 	stars = db.Column('stars', db.Integer)
-	dollarvalue = db.Column('dollarvalue', db.Float)
+	dollarvalue = db.Column('dollarvalue', db.Integer)
 	tokenammount = db.Column('tokenammount', db.Integer)
 	reflink = db.Column('reflink', db.String(150))
 	active = db.Column('active', db.Boolean)
