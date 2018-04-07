@@ -47,9 +47,9 @@ class Dropovi(db.Model):
 
 
 #Single Airdrop
-@app.route('/airdrop/<string:id>/')
-def airdop(id):
-	airdrop = Dropovi.query.filter_by(id=id).first()
+@app.route('/airdrop/<string:shorttitle>/')
+def airdop(shorttitle):
+	airdrop = Dropovi.query.filter_by(shorttitle=shorttitle).first()
 	return render_template('index.html', airdrop=airdrop)
 
 

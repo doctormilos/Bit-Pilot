@@ -10,15 +10,15 @@
 
   <body>
 
-    <div class="container">
+    <div class="container" width="400px">
 
       <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{airdrop.fulltitle}}</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><small>Rating:       {{airdrop.stars}}/5</small><div></div><small>Estimated value:       ${{airdrop.dollarvalue}}</small></li>
                 <li class="list-group-item"><a href="{{airdrop.reflink}}" class="btn btn-primary card-link">View Airdrop</a></li>
+                <li class="list-group-item"><small>Token Amount:      {{airdrop.tokenamount}}</small></li>
             </ul>
           </div>  
         </div>
