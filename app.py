@@ -45,12 +45,18 @@ class Dropovi(db.Model):
 		self.kyc = kyc
 		self.other = other
 
+#All Airdrops
+@app.route('/')
+def svidropovi():
+	svidropovi = Dropovi.query.filter_by(active=True)
+	return render_template('index.html', svidropovi=svidropovi)
 
 #Single Airdrop
 @app.route('/airdrop/<string:shorttitle>/')
 def airdop(shorttitle):
 	airdrop = Dropovi.query.filter_by(shorttitle=shorttitle).first()
-	return render_template('index.html', airdrop=airdrop)
+	return render_template('airdrop.html', airdrop=airdrop)
+
 
 
 if __name__ == '__main__':

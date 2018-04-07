@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Pagination</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <div class="container" width="400px">
+
+      <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{airdrop.fulltitle}}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><small>Rating:       {{airdrop.stars}}/5</small><div></div><small>Estimated value:       ${{airdrop.dollarvalue}}</small></li>
+                <li class="list-group-item"><a href="{{airdrop.reflink}}" class="btn btn-primary card-link">View Airdrop</a></li>
+                <li class="list-group-item"><small>Token Amount:{{airdrop.tokenammount}}</small></li>
+            </ul>
+          </div>  
+        </div>
+
+    </div><!-- /.container -->
+
+  </body>
+</html>

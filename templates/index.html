@@ -1,29 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
 
-    <title>Pagination</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head>
-
-  <body>
-
-    <div class="container">
-
+{% for article_row in svidropovi | batch(4, '&nbsp;') %}
+ <div class="card-deck div">
+      {% for article in article_row %}
       <div class="card">
           <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{airdrop.fulltitle}}</h5>
+            <h5 class="card-title">{{article.fulltitle}}</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><small>Rating:       {{airdrop.stars}}/5</small><div></div><small>Estimated value:       ${{airdrop.dollarvalue}}</small></li>
-                <li class="list-group-item"><a href="{{airdrop.reflink}}" class="btn btn-primary card-link">View Airdrop</a></li>
+                <li class="list-group-item"><small>Rating:       {{article.stars}}</small><div></div><small>Estimated value:       ${{article.dollarvalue}}</small></li>
+                <li class="list-group-item"><a href="article/{{article.id}}" class="btn btn-primary card-link">View Airdrop</a></li>
             </ul>
           </div>  
         </div>
+      {% endfor %}
+ </div>
+{% endfor %}
 
-    </div><!-- /.container -->
-
-  </body>
-</html>
