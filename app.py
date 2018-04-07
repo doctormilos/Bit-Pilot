@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:1234startrek@localhost/air
 db = SQLAlchemy(app)
 
 class Dropovi(db.Model):
-	__tablename__ = 'dropovi'
+	__tablename__ = 'dropovi1'
 	id = db.Column('id', db.Integer, primary_key=True)
 	fulltitle = db.Column('fulltitle', db.String(30))
 	shorttitle = db.Column('shorttitle', db.String(4))
@@ -44,3 +44,15 @@ class Dropovi(db.Model):
 		self.reddit = reddit
 		self.kyc = kyc
 		self.other = other
+
+
+#Single Airdrop
+@app.route('/airdrop/<string:id>/')
+def airdop(id):
+	airdrop = Dropovi.query.filter_by(id=id).first()
+	return render_template('index.html', airdrop=airdrop)
+
+
+if __name__ == '__main__':
+	app.secret_key='secret123'
+	app.run(debug=True)
