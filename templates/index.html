@@ -1,4 +1,6 @@
+{% extends 'layout.html' %}
 
+{% block body %}
 
 {% for article_row in svidropovi | batch(4, '&nbsp;') %}
  <div class="card-deck div">
@@ -17,3 +19,4 @@
  </div>
 {% endfor %}
 
+{% endblock %}
