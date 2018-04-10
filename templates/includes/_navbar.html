@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-      <a class="navbar-brand text-warning" style="font-family:lato, black" href="/">Coin Bounty</a>
+       <a href="#" class="navbar-brand"><img src="{{ url_for('static', filename = 'bit-pilot-black-logo.png') }} " width="100" height="40"></a> 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,17 +12,10 @@
             <a class="nav-link" href="/about" style="font-family:lato, black" >About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/articles" style="font-family:lato, black" >Airdops</a>
+            <a class="nav-link" href="/airdrops" style="font-family:lato, black" >Airdops</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            {% if session.logged_in %}
-              <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href="/logout">Logout</a></li>
-            {% else %}
-              <li><a href="/register">Register</a></li>
-              <li><a href="/login">Login</a></li>
-            {% endif %}
         </ul>
       </div>
     </nav>

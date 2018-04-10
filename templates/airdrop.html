@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+{% extends 'layout.html' %}
 
-    <title>Pagination</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head>
-
-  <body>
-
+{% block body %}
     <div class="container" width="400px">
 
       <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{airdrop.fulltitle}}</h5>
+            <h5 class="card-title">{{airdrop.fulltitle}}                {% if airdrop.facebook == True %}
+                <span class="badge badge-primary">Facebook</span>
+                {% endif %}
+                {% if airdrop.telegram == True %}
+                <span class="badge badge-primary">Telegram</span>
+                {% endif %}</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><small>Rating:       {{airdrop.stars}}/5</small><div></div><small>Estimated value:       ${{airdrop.dollarvalue}}</small></li>
                 <li class="list-group-item"><a href="{{airdrop.reflink}}" class="btn btn-primary card-link">View Airdrop</a></li>
@@ -23,7 +19,5 @@
           </div>  
         </div>
 
-    </div><!-- /.container -->
-
-  </body>
-</html>
+    </div>
+{% endblock %}

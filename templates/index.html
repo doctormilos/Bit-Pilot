@@ -2,21 +2,26 @@
 
 {% block body %}
 
-{% for article_row in svidropovi | batch(4, '&nbsp;') %}
- <div class="card-deck div">
-      {% for article in article_row %}
+
+<p>OVDE POCINJE V1</p>
+<p>Ovo mi deluje da je bolje resenje</p>
+
+<div class="row">
+{% for article in svidropovi %}
+      <div class="col-sm-3">
       <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{article.fulltitle}}</h5>
+          <div class="card-header text-center">
+                <img src="http://via.placeholder.com/100x100" alt="Card image cap" class="rounded-circle">
+                <h5 style="padding-top: 5px">{{article.fulltitle}}</h5>
+              </div>
+            <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><small>Rating:       {{article.stars}}</small><div></div><small>Estimated value:       ${{article.dollarvalue}}</small></li>
-                <li class="list-group-item"><a href="article/{{article.id}}" class="btn btn-primary card-link">View Airdrop</a></li>
+                <li class="list-group-item"><a href="airdrop/{{article.shorttitle}}" class="btn btn-primary card-link">View Airdrop</a></li>
             </ul>
           </div>  
-        </div>
-      {% endfor %}
- </div>
+      </div>
+    </div>
 {% endfor %}
-
+  </div>
 {% endblock %}
