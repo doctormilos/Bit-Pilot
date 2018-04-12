@@ -1,25 +1,38 @@
 {% extends 'layout.html' %}
 
-{% block body %}
-
-
-<p>OVDE POCINJE V1</p>
-<p>Ovo mi deluje da je bolje resenje</p>
+{% block body %}  
 
 <div class="row">
 {% for article in svidropovi %}
-      <div class="col-sm-3">
+      <div class="col-sm-3" style="padding-bottom: 30px">
       <div class="card">
           <div class="card-header text-center">
-                <img src="http://via.placeholder.com/100x100" alt="Card image cap" class="rounded-circle">
+          <img src="{{ url_for('static', filename = article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
                 <h5 style="padding-top: 5px">{{article.fulltitle}}</h5>
+                <p>
+                {% if article.telegram == True %}
+                <span class="badge badge-secondary"><i class="fa fa-telegram"></i></span>
+                {% endif %}
+                {% if article.facebook == True %}
+                <span class="badge badge-danger"><i class="fa fa-facebook-official"></i></span>
+                {% endif %}
+                {% if article.mail == True %}
+                <span class="badge badge-warning"><i class="fa fa-envelope"></i></span>
+                {% endif %}
+                {% if article.twitter == True %}
+                <span class="badge badge-primary"><i class="fa fa-twitter"></i></span>
+                {% endif %}
+                {% if article.other == True %}
+                <span class="badge badge-info"><i class="fa fa-commenting"></i></span>
+                {% endif %}
+                </p>
               </div>
             <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><small>Rating:       {{article.stars}}</small><div></div><small>Estimated value:       ${{article.dollarvalue}}</small></li>
-                <li class="list-group-item"><a href="airdrop/{{article.shorttitle}}" class="btn btn-primary card-link">View Airdrop</a></li>
-            </ul>
+                <small><i class="fa fa-star" style="padding-right: 7px"></i>Rating:       {{article.stars}}</small><div></div><small><i class="fa fa-money" style="padding-right: 5px"></i>Estimated value:        {% if article.dollarvalue==0 %} TBD {% else %}
+                ${{article.dollarvalue}} {% endif %}</small><div></div>
+                <small><i class="fa fa-plus-circle" style="padding-right: 7px"></i>Amount of tokens:       {{article.tokenammount}}</small>
           </div>  
+          <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link">View Airdrop</a></div>
       </div>
     </div>
 {% endfor %}

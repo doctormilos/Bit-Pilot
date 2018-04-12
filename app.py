@@ -51,13 +51,9 @@ def svidropovi():
 	svidropovi = Dropovi.query.filter_by(active=True)
 	return render_template('index.html', svidropovi=svidropovi)
 
-#Single Airdrop
-@app.route('/airdrop/<string:shorttitle>/')
-def airdop(shorttitle):
-	airdrop = Dropovi.query.filter_by(shorttitle=shorttitle).first()
-	return render_template('airdrop.html', airdrop=airdrop)
-
-
+@app.route('/faq')
+def faq():
+	return render_template('faq.html')
 
 if __name__ == '__main__':
 	app.secret_key='secret123'
