@@ -28,11 +28,11 @@
                 </p>
               </div>
             <div class="card-body">
-                <small><i class="fa fa-star" style="padding-right: 7px"></i>Rating:       {{article.stars}}</small><div></div><small><i class="fa fa-money" style="padding-right: 5px"></i>Estimated value:        {% if article.dollarvalue==0 %} TBD {% else %}
+                <small><i class="fa fa-star" style="padding-right: 7px"></i>Rating:       {{article.stars}}/5</small><div></div><small><i class="fa fa-money" style="padding-right: 5px"></i>Estimated value:        {% if article.dollarvalue==0 %} TBD {% else %}
                 ${{article.dollarvalue}} {% endif %}</small><div></div>
                 <small><i class="fa fa-plus-circle" style="padding-right: 7px"></i>Amount of tokens:       {{article.tokenammount}}</small>
           </div>  
-          <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link">View Airdrop</a></div>
+          <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link" style="background-color:#FE8500">View Airdrop</a></div>
       </div>
     </div>
 {% endfor %}
