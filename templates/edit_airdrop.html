@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Ognjene ubaci Airdrop</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{ render_field(form.id, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.fulltitle, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.shorttitle, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.stars, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.dollarvalue, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.tokenammount, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.reflink, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.active, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.telegram, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.mail, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.twitter, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.facebook, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.bitcointalk, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.reddit, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.kyc, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.other, class_="form-control") }}
+    </div>
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+{% endblock %}
