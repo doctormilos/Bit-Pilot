@@ -221,7 +221,7 @@ def edit_airdrop(id):
 
 		db.session.commit()
 
-		flash('Article Edited', 'success')
+		flash('Airdop edited BRAVO OGNJENEE!!!!!!', 'success')
 
 		return redirect(url_for('dashboard'))
 
