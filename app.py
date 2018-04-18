@@ -99,6 +99,7 @@ def dashboard():
 
 #User Reguster
 @app.route('/register' , methods=['GET','POST'])
+@login_required
 def register():
 	if request.method == 'GET':
 		return render_template('register.html')
