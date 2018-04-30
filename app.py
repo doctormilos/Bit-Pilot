@@ -1,8 +1,12 @@
+import os
 from flask import Flask, render_template, request, flash, redirect, url_for, g
 from flask_login import LoginManager, login_user , logout_user , current_user , login_required
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-from wtforms import Form, StringField, TextAreaField, PasswordField, BooleanField, validators
+from wtforms import Form, StringField, TextAreaField, TextAreaField, PasswordField, BooleanField, validators
+from flask_wtf import Form
+from flask_wtf.file import FileField
+from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
@@ -13,10 +17,11 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 class Dropovi(db.Model):
-	__tablename__ = 'dropovi1'
+	__tablename__ = 'dropovi2'
 	id = db.Column('id', db.Integer, primary_key=True)
 	fulltitle = db.Column('fulltitle', db.String(30))
 	shorttitle = db.Column('shorttitle', db.String(4))
+	tutorial = db.Column('tutorial', db.String(200))
 	stars = db.Column('stars', db.Integer)
 	dollarvalue = db.Column('dollarvalue', db.Integer)
 	tokenammount = db.Column('tokenammount', db.Integer)
@@ -31,11 +36,12 @@ class Dropovi(db.Model):
 	kyc = db.Column('kyc', db.Boolean)
 	other = db.Column('other', db.Boolean)
 
-	def __init__(self, id, fulltitle, shorttitle, stars, dollarvalue, tokenammount, reflink, active,
+	def __init__(self, id, fulltitle, shorttitle, tutorial, stars, dollarvalue, tokenammount, reflink, active,
 				telegram, mail, twitter, facebook, bitcointalk, reddit, kyc, other):
 		self.id = id
 		self.fulltitle = fulltitle
 		self.shorttitle = shorttitle
+		self.tutorial = tutorial
 		self.stars = stars
 		self.dollarvalue = dollarvalue
 		self.tokenammount = tokenammount
@@ -111,7 +117,6 @@ def register():
 
 #User Login
 @app.route('/login',methods=['GET','POST'])
-@app.route('/login',methods=['GET','POST'])
 def login():
 	if request.method == 'GET':
 		return render_template('login.html')
@@ -142,9 +147,11 @@ def logout():
 
 #Form stuffs
 class AirdropForm(Form):
+	photo = FileField()
 	id = StringField('ID')
 	fulltitle = StringField('Full Title', [validators.Length(min=1, max=200)])
 	shorttitle = StringField('Short Title')
+	tutorial = TextAreaField('Tutorial Text')
 	stars = StringField('Stars')
 	dollarvalue = StringField('Dollar Value')
 	tokenammount = StringField('Token Amount')
@@ -159,6 +166,24 @@ class AirdropForm(Form):
 	kyc = BooleanField('KYC')
 	other = BooleanField('Other')
 
+#Add picture
+
+class UploadForm(Form):
+	photo = FileField()
+
+@app.route('/add_picture', methods=['GET', 'POST'])
+@login_required
+def add_picture():
+	form = UploadForm()
+	if form.validate_on_submit():
+		filename = secure_filename(form.photo.data.filename)
+		form.photo.data.save('static/' + filename)
+
+		flash('bravo', 'success')
+		return redirect(url_for('add_picture'))
+
+	return render_template('add_picture.html', form=form)
+
 #Add airdrop
 @app.route('/add_airdrop', methods=['GET', 'POST'])
 @login_required
@@ -169,6 +194,7 @@ def add_airdrop():
 		id = form.id.data
 		fulltitle = form.fulltitle.data
 		shorttitle = form.shorttitle.data
+		tutorial = form.tutorial.data
 		stars = form.stars.data
 		dollarvalue = form.dollarvalue.data
 		tokenammount = form.tokenammount.data
@@ -182,11 +208,13 @@ def add_airdrop():
 		reddit = form.reddit.data
 		kyc = form.kyc.data
 		other = form.other.data
+		f = form.photo.data
 
 		# Assign form values to var
-		novi1 = Dropovi(id, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
+		novi1 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.tutorial.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
 		db.session.add(novi1)
 		db.session.commit()
+
 
 		flash('Article Created', 'success')
 

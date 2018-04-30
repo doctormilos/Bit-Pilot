@@ -32,7 +32,30 @@
                 ${{article.dollarvalue}} {% endif %}</small><div></div>
                 <small><i class="fa fa-plus-circle" style="padding-right: 7px"></i>Amount of tokens:       {{article.tokenammount}}</small>
           </div>  
-          <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link" style="background-color:#FE8500">View Airdrop</a></div>
+          <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link">View Airdrop</a></div>
+          <button type="button" class="btn" data-toggle="modal" data-target="#{{article.id}}Modal">
+            Instructions
+          </button>
+          <!-- Modal -->
+              <div class="modal fade" id="{{article.id}}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">{{article.fulltitle}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body text-center">
+                       <img src="{{ url_for('static', filename = article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <!--ENDMODAL-->
       </div>
     </div>
 {% endfor %}

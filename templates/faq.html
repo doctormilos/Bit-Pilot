@@ -2,136 +2,120 @@
 
 {% block body %}  
 
-<div class="container">
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading1">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                    Q: What is Bit-Pilot?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
-            <div class="panel-body">
-                <p>Bit-Pilot is free service that provides links to latest Airdrops.</p>
-            </div>
-        </div>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <a class="text-warning">What is Bit-Pilot?</a>
+        </button>
+      </h5>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading2">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                    Q: What is an Airdrop?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-            <div class="panel-body">
-                <p>Basically Airdrop is free cryptocurrency aka coins/tokens. These coins are distributed by ICOs, for more info read other FAQs.</p>
-            </div>
-        </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Bit-Pilot is free service that provides links to latest Airdrops.</div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading3">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                    Q: Why ICOs give away free tokens?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
-            <div class="panel-body">
-                <p>Tokens are usually distributed as a marketing campaign before the sale of other tokens.</p>
-            </div>
-        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         <a class="text-warning"> What is an Airdrop? </a>
+        </button>
+      </h5>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading4">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                    Q: Is it really valuable? Free money??
-                </a>
-            </h4>
-        </div>
-        <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
-            <div class="panel-body">
-                <p>Yes! It doesn't cost anything to participate in an airdrop but you get tokens that you can sell later and get money. Go check out our How to tutorial and start earning right now!</p>
-            </div>
-        </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Basically Airdrop is free cryptocurrency aka coins/tokens. These coins are distributed by ICOs, for more info read other FAQs.
+      </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading5">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                    Q: Where can I sell my tokens?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
-            <div class="panel-body">
-                <p>Check ICO site of the token you want to sell for news about listing.</p>
-            </div>
-        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <a class="text-warning">Why ICOs give away free tokens?</a>
+        </button>
+      </h5>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading6">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                    Q: Where can I store my tokens?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
-            <div class="panel-body">
-                <p>For storing tokens you need Ethereum Wallet Address that is compatible with ERC-20. You can't use a wallet address from an exchange because you won't get any tokens. So how you get one? We recommend MyEtherWallet and hardware wallets like the Trezor and Ledger Nano S.</p>
-            </div>
-        </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Tokens are usually distributed as a marketing campaign before the sale of other tokens.
+      </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading7">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                    Q: What does the star rating of an airdrop mean?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
-            <div class="panel-body">
-                <p>The star rating is our personal rating of project and it's airdrop value.</p>
-            </div>
-        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <a class="text-warning">Is it really valuable? Free money??</a>
+        </button>
+      </h5>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading8">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                    Q: I didn't receive tokens after completing airdrop, why?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
-            <div class="panel-body">
-                <p>Tokens are usually distributed after the token sale so it's totally normal. Sometimes, before coins get delivered to your wallet it can take up to several months. Also sometimes but rarely project fails and no tokens are distributed.</p>
-            </div>
-        </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+        Yes! It doesn't cost anything to participate in an airdrop but you get tokens that you can sell later and get money. Go check out our How to tutorial and start earning right now!
+      </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="heading9">
-            <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
-                    Q: I didn't receive tokens after completing airdrop, why?
-                </a>
-            </h4>
-        </div>
-        <div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9">
-            <div class="panel-body">
-                <p>Tokens are usually distributed after the token sale so it's totally normal. Sometimes, before coins get delivered to your wallet it can take up to several months. Also sometimes but rarely project fails and no tokens are distributed.</p>
-            </div>
-        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+         <a class="text-warning"> Where can I sell my tokens? </a>
+        </button>
+      </h5>
     </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+        Check ICO site of the token you want to sell for news about listing.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+         <a class="text-warning"> Where can I store my tokens?</a>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+        For storing tokens you need Ethereum Wallet Address that is compatible with ERC-20. You can't use a wallet address from an exchange because you won't get any tokens. So how you get one? We recommend MyEtherWallet and hardware wallets like the Trezor and Ledger Nano S.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+         <a class="text-warning"> What does the star rating of an airdrop mean? </a>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+      <div class="card-body">
+        The star rating is our personal rating of project and it's airdrop value.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEight">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          <a class="text-warning">I didn't receive tokens after completing airdrop, why?</a>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+      <div class="card-body">
+        Tokens are usually distributed after the token sale so it's totally normal. Sometimes, before coins get delivered to your wallet it can take up to several months. Also sometimes but rarely the project fails and no tokens are awarded.
+      </div>
+    </div>
+  </div>
 </div>
 
-    </div>
 
 {% endblock %}
