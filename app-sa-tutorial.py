@@ -17,10 +17,11 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 class Dropovi(db.Model):
-	__tablename__ = 'dropovi1'
+	__tablename__ = 'dropovi2'
 	id = db.Column('id', db.Integer, primary_key=True)
 	fulltitle = db.Column('fulltitle', db.String(30))
 	shorttitle = db.Column('shorttitle', db.String(4))
+	tutorial = db.Column('tutorial', db.String(200))
 	stars = db.Column('stars', db.Integer)
 	dollarvalue = db.Column('dollarvalue', db.Integer)
 	tokenammount = db.Column('tokenammount', db.Integer)
@@ -35,11 +36,12 @@ class Dropovi(db.Model):
 	kyc = db.Column('kyc', db.Boolean)
 	other = db.Column('other', db.Boolean)
 
-	def __init__(self, id, fulltitle, shorttitle, stars, dollarvalue, tokenammount, reflink, active,
+	def __init__(self, id, fulltitle, shorttitle, tutorial, stars, dollarvalue, tokenammount, reflink, active,
 				telegram, mail, twitter, facebook, bitcointalk, reddit, kyc, other):
 		self.id = id
 		self.fulltitle = fulltitle
 		self.shorttitle = shorttitle
+		self.tutorial = tutorial
 		self.stars = stars
 		self.dollarvalue = dollarvalue
 		self.tokenammount = tokenammount
@@ -149,6 +151,7 @@ class AirdropForm(Form):
 	id = StringField('ID')
 	fulltitle = StringField('Full Title', [validators.Length(min=1, max=200)])
 	shorttitle = StringField('Short Title')
+	tutorial = TextAreaField('Tutorial Text')
 	stars = StringField('Stars')
 	dollarvalue = StringField('Dollar Value')
 	tokenammount = StringField('Token Amount')
@@ -191,6 +194,7 @@ def add_airdrop():
 		id = form.id.data
 		fulltitle = form.fulltitle.data
 		shorttitle = form.shorttitle.data
+		tutorial = form.tutorial.data
 		stars = form.stars.data
 		dollarvalue = form.dollarvalue.data
 		tokenammount = form.tokenammount.data
@@ -207,7 +211,7 @@ def add_airdrop():
 		f = form.photo.data
 
 		# Assign form values to var
-		novi1 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
+		novi1 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.tutorial.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
 		db.session.add(novi1)
 		db.session.commit()
 
