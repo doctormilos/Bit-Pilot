@@ -3,10 +3,13 @@
 {% block body %}  
 
   <form method="POST" enctype=multipart/form-data action="">
+  	<ul> <li><p>Must be .PNG</p></li> 
+  		<li>File name = airdrop ID</p></li>
+  	</ul>
     <div class="form-group">
       {{ form.hidden_tag() }}
-      {{ form.photo }}
+   		{{ form.photo }} 
     </div>
-    <input type="submit">
+    <input type="submit" class="btn btn-primary">
   </form>
 {% endblock %}

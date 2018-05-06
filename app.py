@@ -17,7 +17,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 class Dropovi(db.Model):
-	__tablename__ = 'dropovi1'
+	__tablename__ = 'dropovi2'
 	id = db.Column('id', db.Integer, primary_key=True)
 	fulltitle = db.Column('fulltitle', db.String(30))
 	shorttitle = db.Column('shorttitle', db.String(4))
@@ -149,6 +149,7 @@ class AirdropForm(Form):
 	id = StringField('ID')
 	fulltitle = StringField('Full Title', [validators.Length(min=1, max=200)])
 	shorttitle = StringField('Short Title')
+	tutorial = TextAreaField('Tutorial Text')
 	stars = StringField('Stars')
 	dollarvalue = StringField('Dollar Value')
 	tokenammount = StringField('Token Amount')
@@ -187,30 +188,10 @@ def add_picture():
 def add_airdrop():
 	form = AirdropForm(request.form)
 	if request.method == 'POST' and form.validate():
-		#Mislim da je ovo ispod nepotrebno
-		id = form.id.data
-		fulltitle = form.fulltitle.data
-		shorttitle = form.shorttitle.data
-		stars = form.stars.data
-		dollarvalue = form.dollarvalue.data
-		tokenammount = form.tokenammount.data
-		reflink = form.reflink.data
-		active = form.active.data
-		telegram = form.telegram.data
-		mail = form.mail.data
-		twitter = form.twitter.data
-		facebook = form.facebook.data
-		bitcointalk = form.bitcointalk.data
-		reddit = form.reddit.data
-		kyc = form.kyc.data
-		other = form.other.data
-		f = form.photo.data
-
-		# Assign form values to var
-		novi1 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
-		db.session.add(novi1)
+		# Call init self for form data
+		novi2 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
+		db.session.add(novi2)
 		db.session.commit()
-
 
 		flash('Article Created', 'success')
 

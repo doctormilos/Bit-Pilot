@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Ognjene ubaci Airdrop</h1>
+  <h1>Ubaci Airdrop</h1>
   {% from "includes/_formhelpers.html" import render_field %}
   <form method="POST" action="">
     <div class="form-group">
@@ -12,9 +12,6 @@
     </div>
     <div class="form-group">
       {{ render_field(form.shorttitle, class_="form-control") }}
-    </div>
-    <div class="form-group">
-      {{ render_field(form.tutorial, class_="form-control") }}
     </div>
     <div class="form-group">
       {{ render_field(form.stars, class_="form-control") }}
@@ -55,6 +52,6 @@
     <div class="form-group">
       {{ render_field(form.other, class_="form-control") }}
     </div>
-    <p><input class="btn btn-primary" type="submit" value="Submit">
+    <p><input type="submit" value="Submit">
   </form>
 {% endblock %}
