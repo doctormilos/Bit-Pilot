@@ -14,8 +14,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {% if g.user.is_authenticated %}
-                <li><button class="btn btn-primary"><a href="{{ url_for('dashboard') }}">Logout</a></button></li>
-                <li><button class="btn btn-warning"><a href="{{ url_for('logout') }}">Logout</a></button></li>
+                <li><button class="btn btn-success nav-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></button></li>
+                <li><button class="btn btn-warning nav-item"><a href="{{ url_for('logout') }}">Logout</a></button></li>
           {% endif %}
         </ul>
       </div>
