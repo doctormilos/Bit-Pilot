@@ -17,7 +17,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 class Dropovi(db.Model):
-	__tablename__ = 'dropovi2'
+	__tablename__ = 'dropovi1'
 	id = db.Column('id', db.Integer, primary_key=True)
 	fulltitle = db.Column('fulltitle', db.String(30))
 	shorttitle = db.Column('shorttitle', db.String(4))
