@@ -149,7 +149,6 @@ class AirdropForm(Form):
 	id = StringField('ID')
 	fulltitle = StringField('Full Title', [validators.Length(min=1, max=200)])
 	shorttitle = StringField('Short Title')
-	tutorial = TextAreaField('Tutorial Text')
 	stars = StringField('Stars')
 	dollarvalue = StringField('Dollar Value')
 	tokenammount = StringField('Token Amount')
@@ -187,7 +186,8 @@ def add_picture():
 @login_required
 def add_airdrop():
 	form = AirdropForm(request.form)
-	if request.method == 'POST' and form.validate():
+	if request.method == 'POST':
+		# Ne radi form.validate() iz nekog razloga
 		# Call init self for form data
 		novi2 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
 		db.session.add(novi2)
@@ -203,7 +203,7 @@ def add_airdrop():
 @login_required
 def edit_airdrop(id):
 	form= AirdropForm(request.form)
-	if request.method == 'POST' and form.validate():
+	if request.method == 'POST':
 
 		update_this = Dropovi.query.filter_by(id=id).first()
 		update_this.id = form.id.data
