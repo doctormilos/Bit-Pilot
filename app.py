@@ -203,6 +203,8 @@ def add_airdrop():
 @login_required
 def edit_airdrop(id):
 	form= AirdropForm(request.form)
+	info = Dropovi.query.filter_by(id=id).first()
+	
 	if request.method == 'POST':
 
 		update_this = Dropovi.query.filter_by(id=id).first()
@@ -226,11 +228,11 @@ def edit_airdrop(id):
 
 		db.session.commit()
 
-		flash('Airdop edited BRAVO OGNJENEE!!!!!!', 'success')
+		flash('Airdop edited :)', 'success')
 
 		return redirect(url_for('dashboard'))
 
-	return render_template('edit_airdrop.html', form=form)
+	return render_template('edit_airdrop.html', form=form, info=info)
 
 #Delete Airdop
 @app.route('/delete_airdrop/<string:id>', methods=['POST'])

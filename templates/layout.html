@@ -20,56 +20,57 @@
   </head>
   <body>
     {% include 'includes/_navbar.html' %}
-    <div class="container">
+    <div class="container" style="min-height: 270px">
       {% include 'includes/_messages.html' %}
       {% block body %}{% endblock %}
-    </div>
-
-
+    </div>  
+  </div>
       <!--Footer-->
-      <footer class="page-footer font-small pt-0">
+      <footer class="page-footer font-small pt-0 py-3 bg-secondary">
 
           <!--Footer Links-->
           <div class="container">
 
-              <!--First row-->
-              <div class="row">
-
-                  <!--First column-->
-                  <div class="col-md-12 py-5">
-
-                      <div class="mb-5 text-center">
-                          
-                          <a class="tw-ic">
-                              <i class="fa fa-telegram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                          </a>
-                          <!--Facebook-->
-                          <a class="fb-ic">
-                              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                          </a>
-                          <!--Twitter-->
-                          <a class="tw-ic">
-                              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                          </a>
-                          <!--Instagram-->
-                          <a class="ins-ic">
-                              <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                          </a>                      </div>
-                  </div>
-                  <!--/First column-->
               </div>
               <!--/First row-->
+                  <div class="col">
+
+                      <div class="text-center text-light">
+                          
+                          <h4 class="py-3">Donations are welcomed! :)</h4>
+                          <p>ETH : 0x1ce75e22bE4969d3Fbb819a2149d63D0E02d8629</p>
+                          <p>BTC : 1ARucATr476x4XbdN4fHEPqjabozDQnfmg</p>
+                        </div>
+
+                        <div class="text-center text-light" style="padding-left: 30px">
+                          <div class="text-center">
+                          <a class="tl-ic">
+                              <i class="fa fa-telegram fa-lg white-text mr-4 fa-2x"> </i>
+                          </a>
+                          <a class="fb-ic">
+                              <i class="fa fa-facebook fa-lg white-text mr-4 fa-2x"> </i>
+                          </a>
+                          <a class="tw-ic">
+                              <i class="fa fa-twitter fa-lg white-text mr-4 fa-2x"> </i>
+                          </a>
+                          <a class="ins-ic">
+                              <i class="fa fa-instagram fa-lg white-text mr-4 fa-2x"> </i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
           </div>
           <!--/Footer Links-->
+      </footer>
 
+      <!--/Footer-->
           <!--Copyright-->
           <div class="footer-copyright py-3 text-center bg-warning">
-              <p style="color: white">© 2018 Copyright:&nbsp<a href="https://Bit-Pilot.com" style="color: white"> bit-pilot.com </a></p>
+              <p style="color: black">© 2018 Copyright:&nbsp<a href="https://Bit-Pilot.com" style="color: black"> bit-pilot.com </a></p>
           </div>
-          <!--/Copyright-->
+          <!--/Copyright--> 
 
-      </footer>
-      <!--/Footer-->
-                      
   </body>
 </html>
