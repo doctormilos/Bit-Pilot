@@ -1,16 +1,12 @@
 {% extends 'layout.html' %}
 
 {% block body %}  
-<div class="row jumbotron">
-<h3>You can earn </h3><h3 class="text-success">&nbsp${{ svidropovi | sum(attribute='dollarvalue') }}&nbsp </h3> <h3>if you complete all airdrops on Bit-Pilot</h3>
-</div>
-  <h1 class="pb-3">Airdrops</h1>
 <div class="row">
-{% for article in svidropovi|sort(reverse=True, attribute='dollarvalue') %}
+{% for article in svidropovi %}
       <div class="col-sm-3" style="padding-bottom: 30px">
       <div class="card">
           <div class="card-header text-center">
-          <img src="{{ url_for('static', filename = 'drops/'+ article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
+          <img src="{{ url_for('static', filename = article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
                 <h5 style="padding-top: 5px">{{article.fulltitle}}</h5>
                 <p>
                 {% if article.telegram == True %}
@@ -50,7 +46,7 @@
                       </button>
                     </div>
                     <div class="modal-body text-center">
-                       <img src="{{ url_for('static', filename = 'drops/'+ article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
+                       <img src="{{ url_for('static', filename = article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>

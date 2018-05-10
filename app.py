@@ -171,19 +171,15 @@ class UploadForm(Form):
 @app.route('/add_picture', methods=['GET', 'POST'])
 @login_required
 def add_picture():
-	
 	form = UploadForm()
-	hists = os.listdir('static/drops')
-	hists = ['drops/' + file for file in hists if file.lower().endswith(".png")]
-	
 	if form.validate_on_submit():
 		filename = secure_filename(form.photo.data.filename)
-		form.photo.data.save('static/drops/' + filename)
+		form.photo.data.save('static/' + filename)
 
 		flash('bravo', 'success')
-		return redirect(url_for('dashboard'))
+		return redirect(url_for('add_picture'))
 
-	return render_template('add_picture.html', form=form, hists=hists)
+	return render_template('add_picture.html', form=form)
 
 #Add airdrop
 @app.route('/add_airdrop', methods=['GET', 'POST'])
@@ -191,10 +187,7 @@ def add_picture():
 def add_airdrop():
 	form = AirdropForm(request.form)
 	if request.method == 'POST':
-		#	TEND TO THIS 		
-		#		 |
 		# Ne radi form.validate() iz nekog razloga
-		#
 		# Call init self for form data
 		novi2 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
 		db.session.add(novi2)
