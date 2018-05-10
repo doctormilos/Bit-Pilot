@@ -12,4 +12,9 @@
     </div>
     <input type="submit" class="btn btn-primary">
   </form>
+  <div>
+      {% for hist in hists %}
+		<img src="{{url_for('static', filename=hist)}}" alt="{{hist}}" class="img-thumbnail">
+    {% endfor %}
+  </div>
 {% endblock %}
