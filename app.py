@@ -251,6 +251,14 @@ def delete_airdrop(id):
 	flash('Airdrop Deleted', 'success')
 	return redirect(url_for('dashboard'))
 
+#Delete picture
+@app.route('/delete_picture/<string:id>', methods=['POST'])
+@login_required
+def delete_picture(id):
+	os.remove('static/drops/' + id)
+	flash('Picture Deleted', 'success')
+	return redirect(url_for('dashboard'))
+
 if __name__ == '__main__':
 	app.secret_key='secret123'
 	app.run(host='0.0.0.0', debug=True)
