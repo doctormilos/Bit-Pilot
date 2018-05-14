@@ -15,10 +15,12 @@
       <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename = 'favicon-16x16.png') }}">
       <link rel="manifest" href="{{ url_for('static', filename = 'site.webmanifest') }}">
       <link rel="mask-icon" href="{{ url_for('static', filename = 'safari-pinned-tab.svg') }}" color="#5bbad5">
+      <link rel="stylesheet" href="{{url_for('static', filename='animation.css')}}" type="css/text">
       <meta name="msapplication-TileColor" content="#da532c">
       <meta name="theme-color" content="#ffffff">
   </head>
   <body>
+
     {% include 'includes/_navbar.html' %}
     <div class="container" style="min-height: 270px">
       {% include 'includes/_messages.html' %}
@@ -71,6 +73,9 @@
               <p style="color: black">© 2018 Copyright:&nbsp<a href="https://Bit-Pilot.com" style="color: black"> bit-pilot.com </a></p>
           </div>
           <!--/Copyright--> 
-
+    <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script type="text/javascript">
+      CKEDITOR.replace('editor')
+    </script>
   </body>
 </html>

@@ -9,10 +9,12 @@
             <a class="nav-link" href="/faq" style="font-family:lato, black" >FAQ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/howto" style="font-family:lato, black" >How To</a>
+            <a class="nav-link" href="/how-to" style="font-family:lato, black" >How To</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <div id="coindesk-widget"></div>
+
           {% if g.user.is_authenticated %}
                 <li><button class="btn btn-success nav-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></button></li>
                 <li><button class="btn btn-warning nav-item"><a href="{{ url_for('logout') }}">Logout</a></button></li>

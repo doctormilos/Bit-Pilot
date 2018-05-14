@@ -2,8 +2,54 @@
 
 {% block body %} 
 
-
 <div class="row jumbotron">
+  <style type="text/css">
+
+
+  .jumbotron{
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+</style>
 <h3 class="display-4">You can earn up to </h3><h3 class="text-success display-4">&nbsp${{ svidropovi | sum(attribute='dollarvalue') }}&nbsp </h3> <h3 class="display-4">if you complete all airdrops on Bit-Pilot</h3>
 </div>
   <h1 class="pb-3">Airdrops</h1>
@@ -11,9 +57,9 @@
 {% for article in svidropovi|sort(reverse=True, attribute='dollarvalue') %}
       <div class="col-sm-3" style="padding-bottom: 30px">
       <div class="card">
+        <h5 class="card-header text-center" style="padding-top: 5px">{{article.fulltitle}}</h5>
           <div class="card-header text-center">
           <img src="{{ url_for('static', filename = 'drops/'+ article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
-                <h5 style="padding-top: 5px">{{article.fulltitle}}</h5>
                 <p>
                 {% if article.telegram == True %}
                 <span class="badge badge-secondary"><i class="fa fa-telegram"></i></span>
@@ -53,9 +99,7 @@
                     </div>
                     <div class="modal-body text-center">
                        <img src="{{ url_for('static', filename = 'drops/'+ article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                       <p>{{article.tutorijala|safe}}</p>
                     </div>
                   </div>
                 </div>
