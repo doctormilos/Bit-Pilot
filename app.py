@@ -23,6 +23,7 @@ class Dropovi(db.Model):
 	shorttitle = db.Column('shorttitle', db.String(4))
 	stars = db.Column('stars', db.Integer)
 	tutorijala = db.Column('tutorijala', db.String(500))
+	tutorijalb = db.Column('tutorijalb', db.String(500))
 	dollarvalue = db.Column('dollarvalue', db.Integer)
 	tokenammount = db.Column('tokenammount', db.Integer)
 	reflink = db.Column('reflink', db.String(150))
@@ -36,13 +37,14 @@ class Dropovi(db.Model):
 	kyc = db.Column('kyc', db.Boolean)
 	other = db.Column('other', db.Boolean)
 
-	def __init__(self, id, fulltitle, shorttitle, stars, tutorijala, dollarvalue, tokenammount, reflink, active,
+	def __init__(self, id, fulltitle, shorttitle, stars, tutorijala, tutorijalb, dollarvalue, tokenammount, reflink, active,
 				telegram, mail, twitter, facebook, bitcointalk, reddit, kyc, other):
 		self.id = id
 		self.fulltitle = fulltitle
 		self.shorttitle = shorttitle
 		self.stars = stars
 		self.tutorijala = tutorijala
+		self.tutorijalb = tutorijalb
 		self.dollarvalue = dollarvalue
 		self.tokenammount = tokenammount
 		self.reflink = reflink
@@ -157,7 +159,8 @@ class AirdropForm(Form):
 	fulltitle = StringField('Full Title', [validators.Length(min=1, max=200)])
 	shorttitle = StringField('Short Title')
 	stars = StringField('Stars')
-	tutorijala = TextAreaField('Tut')
+	tutorijala = TextAreaField('Tutorijal Engleski')
+	tutorijalb = TextAreaField('Tutorijal Srpski')
 	dollarvalue = StringField('Dollar Value')
 	tokenammount = StringField('Token Amount')
 	reflink = StringField('Reflink')
@@ -204,7 +207,7 @@ def add_airdrop():
 		# Ne radi form.validate() iz nekog razloga
 		#
 		# Call init self for form data
-		novi2 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.tutorijala.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
+		novi2 = Dropovi(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.tutorijala.data, form.tutorijalb.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
 		db.session.add(novi2)
 		db.session.commit()
 
@@ -228,6 +231,7 @@ def edit_airdrop(id):
 		update_this.shorttitle = form.shorttitle.data
 		update_this.stars = form.stars.data
 		update_this.tutorijala = form.tutorijala.data
+		update_this.tutorijalb = form.tutorijalb.data
 		update_this.dollarvalue = form.dollarvalue.data
 		update_this.tokenammount = form.tokenammount.data
 		update_this.reflink = form.reflink.data

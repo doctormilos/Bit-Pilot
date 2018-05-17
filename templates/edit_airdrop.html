@@ -7,75 +7,70 @@
     <div class="row">
     <div class="col-sm-5 ">
     <div class="form-group">
-      {{ render_field(form.id, class_="form-control") }}
-      <label class="text-muted"> {{ info.id }}</label>
+      {{ render_field(form.id, class_="form-control", value=info.id) }}
     </div>
     <div class="form-group">
-      {{ render_field(form.fulltitle, class_="form-control") }}
-      <label class="text-muted"> {{ info.fulltitle }}</label>
+      {{ render_field(form.fulltitle, class_="form-control", value=info.fulltitle) }}
     </div>
     <div class="form-group">
-      {{ render_field(form.shorttitle, class_="form-control") }}
-      <label class="text-muted"> {{ info.shorttitle }}</label>
+      {{ render_field(form.shorttitle, class_="form-control", value=info.shorttitle) }}
  </div>
     <div class="form-group">
-      {{ render_field(form.stars, class_="form-control") }}
-      <label class="text-muted"> {{ info.stars }}</label>
+      {{ render_field(form.stars, class_="form-control", value=info.stars) }}
     </div>
     <div class="form-group">
-      {{ render_field(form.tutorijala, class_="form-control", id="editor") }}
-      <label class="text-muted"> {{ info.tutorijala }}</label>
+      {{ render_field(form.tutorijala, class_="form-control ckeditor", value=info.tutorijala) }}
     </div>
     <div class="form-group">
-      {{ render_field(form.dollarvalue, class_="form-control") }}
-      <label class="text-muted"> {{ info.dollarvalue }}</label>
+      {{ render_field(form.tutorijalb, class_="form-control ckeditor", value=info.tutorijalb) }}
     </div>
     <div class="form-group">
-      {{ render_field(form.tokenammount, class_="form-control") }}
-      <label class="text-muted"> {{ info.tokenammount }}</label>
+      {{ render_field(form.dollarvalue, class_="form-control", value=info.dollarvalue) }}
     </div>
     <div class="form-group">
-      {{ render_field(form.reflink, class_="form-control") }}
-      <label class="text-muted"> {{ info.reflink }}</label>
+      {{ render_field(form.tokenammount, class_="form-control", value=info.tokenammount) }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.reflink, class_="form-control", value=info.reflink) }}
     </div>
 
     </div>
     <div class="col-sm-3">
     <div class="form-group">
       {{ render_field(form.active, class_="form-control") }}
-      <label class="text-muted"> {{ info.active }}</label>
+      <label class="text-muted">{{info.active}}</label>
     </div>
     <div class="form-group">
       {{ render_field(form.telegram, class_="form-control") }}
-      <label class="text-muted"> {{ info.telegram }}</label>
+      <label class="text-muted">{{info.telegram}}</label>
     </div>
     <div class="form-group">
-      {{ render_field(form.mail, class_="form-control") }}
-      <label class="text-muted"> {{ info.mail }}</label>
+      {{ render_field(form.mail, class_="form-control")}}
+      <label class="text-muted">{{info.mail}}</label>
     </div>
     <div class="form-group">
-      {{ render_field(form.twitter, class_="form-control") }}
-      <label class="text-muted"> {{ info.twitter }}</label>
+      {{ render_field(form.twitter, class_="form-control")}}
+      <label class="text-muted">{{info.twitter}}</label>
     </div>
     <div class="form-group">
-      {{ render_field(form.facebook, class_="form-control") }}
-      <label class="text-muted"> {{ info.facebook }}</label>
+      {{ render_field(form.facebook, class_="form-control")}}
+      <label class="text-muted">{{info.facebook}}</label>
     </div>
     <div class="form-group">
-      {{ render_field(form.bitcointalk, class_="form-control") }}
-      <label class="text-muted"> {{ info.bitcointalk }}</label>
+      {{ render_field(form.bitcointalk, class_="form-control")}}
+      <label class="text-muted">{{info.bitcointalk}}</label>
     </div>
     <div class="form-group">
-      {{ render_field(form.reddit, class_="form-control") }}
-      <label class="text-muted"> {{ info.reddit }}</label>
+      {{ render_field(form.reddit, class_="form-control")}}
+      <label class="text-muted">{{info.reddit}}</label>
     </div>
     <div class="form-group">
-      {{ render_field(form.kyc, class_="form-control") }}
-      <label class="text-muted"> {{ info.kyc }}</label>
+      {{ render_field(form.kyc, class_="form-control")}}
+      <label class="text-muted">{{info.kyc}}</label>
     </div>
     <div class="form-group">
-      {{ render_field(form.other, class_="form-control") }}
-      <label class="text-muted"> {{ info.other }}</label>
+      {{ render_field(form.other, class_="form-control")}}
+      <label class="text-muted">{{info.other}}</label>
     </div>
   </div>
       <div class="col-sm-12 text-center" style="padding-bottom: 50px;">
