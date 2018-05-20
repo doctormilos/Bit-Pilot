@@ -1,12 +1,11 @@
-{% extends 'layout.html' %}
-
+{% extends 'layoutsrb.html' %}
 {% block body %} 
 
 <div class="row jumbotron">
 
-<h3 class="display-4">You can earn up to </h3><h3 class="text-success display-4">&nbsp${{ svidropovi | sum(attribute='dollarvalue') }}&nbsp </h3> <h3 class="display-4">if you complete all airdrops on Bit-Pilot</h3>
+<h3 class="display-4">Mozeš da zaradiš do </h3><h3 class="text-success display-4">&nbsp${{ svidropovi | sum(attribute='dollarvalue') }}&nbsp </h3> <h3 class="display-4">ako popuniš sve airdrop-ove sa Bitpilot.rs!</h3>
 </div>
-  <h1 class="pb-3">Airdrops</h1>
+  <h1 class="pb-3">Airdropovi</h1>
 <div class="row">
 {% for article in svidropovi|sort(reverse=True, attribute='dollarvalue') %}
       <div class="col-md-4 col-lg-3 col-sm-6" style="padding-bottom: 30px">
@@ -33,14 +32,14 @@
                 </p>
               </div>
             <div class="card-body">
-                <small><i class="fa fa-star" style="padding-right: 7px"></i>Rating:       {{article.stars}}/5</small><div></div><small><i class="fa fa-money" style="padding-right: 5px"></i>Estimated value:        {% if article.dollarvalue==0 %} TBD {% else %}
+                <small><i class="fa fa-star" style="padding-right: 7px"></i>Ocena:       {{article.stars}}/5</small><div></div><small><i class="fa fa-money" style="padding-right: 5px"></i>Procenjena vrednost:        {% if article.dollarvalue==0 %} Nije određeno {% else %}
                 ${{article.dollarvalue}} {% endif %}</small><div></div>
-                <small><i class="fa fa-plus-circle" style="padding-right: 7px"></i>Amount of tokens:  {% if article.tokenammount==0 %} TBD {% else %}
+                <small><i class="fa fa-plus-circle" style="padding-right: 7px"></i>Broj tokena:  {% if article.tokenammount==0 %} Nije određeno {% else %}
                 ${{article.tokenammount}} {% endif %}</small>
           </div>  
-          <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link">View Airdrop</a></div>
+          <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link">Popuni airdrop</a></div>
           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#{{article.id}}Modal">
-            Instructions
+            Instrukcije
           </button>
           <!-- Modal will this fix it?-->
               <div class="modal fade" id="{{article.id}}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -54,7 +53,7 @@
                     </div>
                     <div class="modal-body text-center">
                        <img src="{{ url_for('static', filename = 'drops/'+ article.id|string +'.png') }}" alt="Card image cap" class="rounded-circle">
-                       <p>{{article.tutorijala|safe}}</p>
+                       <p>{{article.tutorijalb|safe}}</p>
                     </div>
                   </div>
                 </div>
@@ -64,4 +63,5 @@
     </div>
 {% endfor %}
   </div>
+
 {% endblock %}

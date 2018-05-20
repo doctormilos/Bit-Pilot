@@ -93,10 +93,26 @@ def svidropovi():
 	svidropovi = Dropovi.query.filter_by(active=True)
 	return render_template('index.html', svidropovi=svidropovi)
 
+#All Airdrops
+@app.route('/pocetna')
+def svidropovisrb():
+	svidropovi = Dropovi.query.filter_by(active=True)
+	return render_template('pocetna.html', svidropovi=svidropovi)
+
 #FAQ Page
 @app.route('/faq')
 def faq():
 	return render_template('faq.html')
+
+#CPP stranica
+@app.route('/cpp')
+def cpp():
+	return render_template('cesto-postavljana-pitanja.html')
+
+#Kako-da page
+@app.route('/kako-da')
+def kako():
+	return render_template('kako-da.html')
 
 #How-to page
 @app.route('/how-to')
