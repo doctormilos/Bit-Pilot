@@ -36,7 +36,7 @@
                 <small><i class="fa fa-star" style="padding-right: 7px"></i>Rating:       {{article.stars}}/5</small><div></div><small><i class="fa fa-money" style="padding-right: 5px"></i>Estimated value:        {% if article.dollarvalue==0 %} TBD {% else %}
                 ${{article.dollarvalue}} {% endif %}</small><div></div>
                 <small><i class="fa fa-plus-circle" style="padding-right: 7px"></i>Amount of tokens:  {% if article.tokenammount==0 %} TBD {% else %}
-                ${{article.tokenammount}} {% endif %}</small>
+                {{article.tokenammount}} {% endif %}</small>
           </div>  
           <div class="card-footer text-center"><a href="{{article.reflink}}"  target="_blank" class="btn btn-warning card-link">View Airdrop</a></div>
           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#{{article.id}}Modal">
