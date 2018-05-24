@@ -86,21 +86,20 @@ class User(db.Model):
 
 	def __repr__(self):
 		return '<User %r>' % (self.username)
+#All Airdrops
+@app.route('/pocetna')
+def svidropovisrb():
+	svidropovi = Dropovi.query.filter_by(active=True)
+	return render_template('pocetna.html', svidropovi=svidropovi)
 
 #All Airdrops
 @app.route('/')
 def svidropovi():
 	svidropovi = Dropovi.query.filter_by(active=True)
 	if request.headers['CF_IPCOUNTRY'] == 'RS':
-		return redirect(url_for('/pocetna'))
+		return redirect(url_for('pocetna'))
 	else:
 		return render_template('index.html', svidropovi=svidropovi)
-
-#All Airdrops
-@app.route('/pocetna')
-def svidropovisrb():
-	svidropovi = Dropovi.query.filter_by(active=True)
-	return render_template('pocetna.html', svidropovi=svidropovi)
 
 #FAQ Page
 @app.route('/faq')
