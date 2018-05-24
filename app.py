@@ -92,7 +92,7 @@ class User(db.Model):
 def svidropovi():
 	svidropovi = Dropovi.query.filter_by(active=True)
 	if request.headers['CF_IPCOUNTRY'] == 'RS':
-		return redirect(url_for('pocetna'))
+		return redirect(url_for('/pocetna'))
 	else:
 		return render_template('index.html', svidropovi=svidropovi)
 
