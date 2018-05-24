@@ -94,7 +94,7 @@ def svidropovi():
 	if request.headers['HTTP_CF_IPCOUNTRY'] == 'RS':
 		return redirect(url_for('pocetna'))
 	else:
-	return render_template('index.html', svidropovi=svidropovi)
+		return render_template('index.html', svidropovi=svidropovi)
 
 #All Airdrops
 @app.route('/pocetna')
