@@ -93,7 +93,7 @@ def svidropovi():
 	svidropovi = Dropovi.query.filter_by(active=True)
 	if request.headers['HTTP_CF_IPCOUNTRY'] == 'RS':
 		return redirect(url_for('pocetna'))
-	else
+	else:
 	return render_template('index.html', svidropovi=svidropovi)
 
 #All Airdrops
