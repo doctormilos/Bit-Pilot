@@ -89,13 +89,13 @@ class User(db.Model):
 #All Airdrops
 @app.route('/pocetna')
 def svidropovisrb():
-	svidropovi = Dropovi.query.filter_by(id)
+	svidropovi = Dropovi.query.order_by(id)
 	return render_template('pocetna.html', svidropovi=svidropovi)
 
 #All Airdrops
 @app.route('/')
 def svidropovi():
-	svidropovi = Dropovi.query.filter_by(id)
+	svidropovi = Dropovi.query.order_by(id)
 	if request.headers['CF_IPCOUNTRY'] == 'RS':
 		return redirect(url_for('svidropovisrb'))
 	else:
