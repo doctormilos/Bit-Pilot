@@ -89,7 +89,7 @@ class User(db.Model):
 #All Airdrops
 @app.route('/pocetna')
 def svidropovisrb():
-	svidropovi = Dropovi.query.order_by(id)
+	svidropovi = Dropovi.query.order_by(Dropovi.id)
 	return render_template('pocetna.html', svidropovi=svidropovi)
 
 #All Airdrops
