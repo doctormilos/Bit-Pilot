@@ -95,7 +95,7 @@ def svidropovisrb():
 #All Airdrops
 @app.route('/')
 def svidropovi():
-	svidropovi = Dropovi.query.filter_by(active=True)
+	svidropovi = Dropovi.query.filter_by(id)
 	if request.headers['CF_IPCOUNTRY'] == 'RS':
 		return redirect(url_for('svidropovisrb'))
 	else:
