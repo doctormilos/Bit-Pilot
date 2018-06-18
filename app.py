@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:1234startrek@localhost/airdropdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234startrek@localhost/airdropdb'
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
