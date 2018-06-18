@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234startrek@localhost/airdropdb'
+app.config['SQLALCHEMY_DATA BASE_URI'] = 'mysql+pymysql://root:1234startrek@localhost/airdropdb'
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -86,6 +86,33 @@ class User(db.Model):
 
 	def __repr__(self):
 		return '<User %r>' % (self.username)
+
+class Fauceti(db.Model):
+	__tablename__ = 'fauceti'
+	id = db.Column('id', db.Integer, primary_key=True)
+	title = db.Column('title', db.String(30))
+	stars = db.Column('stars', db.Integer)
+	info = db.Column('info', db.String(500))
+	vrednost = db.Column('vrednost', db.String(50))
+	reflink = db.Column('reflink', db.String(150))
+	limit = db.Column('limit', db.String(30))
+	period = db.Column('period', db.String(30))
+	active = db.Column('active', db.Boolean)
+	coin = db.Column('coin', db.String(30))
+
+
+	def __init__(self, id, title, stars, info, vrednost, reflink, limit, period, active, coin):
+		self.id = id
+		self.title = title
+		self.stars = stars
+		self.info = info
+		self.vrednost = vrednost
+		self.reflink = reflink
+		self.limit = limit
+		self.period = period
+		self.active = active
+		self.coin = coin
+
 #All Airdrops
 @app.route('/pocetna')
 def svidropovisrb():
@@ -96,10 +123,13 @@ def svidropovisrb():
 @app.route('/')
 def svidropovi():
 	svidropovi = Dropovi.query.filter_by(active=True)
-	if request.headers['CF_IPCOUNTRY'] == 'RS':
-		return redirect(url_for('svidropovisrb'))
-	else:
-		return render_template('index.html', svidropovi=svidropovi)
+	return render_template('index.html', svidropovi=svidropovi)
+
+#All Faucets
+@app.route('/faucets')
+def svifauceti():
+	svifauceti = Fauceti.query.filter_by(active=True)
+	return render_template('faucets.html', svifauceti=svifauceti)
 
 #FAQ Page
 @app.route('/faq')
@@ -128,7 +158,7 @@ def dashboard():
 	svidropovi = Dropovi.query.filter_by(active=True)
 	return render_template('dashboard.html', svidropovi=svidropovi)
 
-#User Reguster
+#User Register
 @app.route('/register' , methods=['GET','POST'])
 @login_required
 def register():
@@ -170,7 +200,7 @@ def logout():
 	return redirect(url_for('svidropovi')) 
 	flash ('Logged out successfully', 'success')
 
-#Form stuffs
+#Airdrop form stuffs
 class AirdropForm(Form):
 	photo = FileField()
 	id = StringField('ID')
@@ -191,6 +221,20 @@ class AirdropForm(Form):
 	reddit = BooleanField('Reddit')
 	kyc = BooleanField('KYC')
 	other = BooleanField('Other')
+
+
+#Faucet form stuffs
+class FaucetForm(Form):
+	id = StringField('ID')
+	title = StringField('Title', [validators.Length(min=1, max=200)])
+	stars = StringField('Stars')
+	info = TextAreaField('Info')
+	vrednost = TextAreaField('Vrednost po danu')
+	reflink = StringField('Reflink')
+	limit = StringField('Limit za podizanje')
+	period = StringField('Period')
+	active = BooleanField('Aktivan')
+	coin = StringField('Koji coin')
 
 #Add picture
 
@@ -234,6 +278,26 @@ def add_airdrop():
 		return redirect(url_for('dashboard'))
 
 	return render_template('add_airdrop.html', form=form)
+
+@app.route('/add_faucet', methods=['GET', 'POST'])
+@login_required
+def add_faucet():
+	form = FaucetForm(request.form)
+	if request.method == 'POST':
+		#	TEND TO THIS 		
+		#		 |
+		# Ne radi form.validate() iz nekog razloga
+		#
+		# Call init self for form data
+		novi2 = Fauceti(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.tutorijala.data, form.tutorijalb.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
+		db.session.add(novi2)
+		db.session.commit()
+
+		flash('Faucet Created', 'success')
+
+		return redirect(url_for('dashboard'))
+
+	return render_template('add_faucet.html', form=form)
 
 @app.route('/edit_airdrop/<string:id>', methods=['POST','GET'])
 @login_required

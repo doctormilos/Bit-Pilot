@@ -1,0 +1,46 @@
+{% extends 'layoutsrb.html' %}
+{% block body %} 
+
+  <h1 class="pb-3">Fauceti</h1>
+<div class="row">
+{% for faucet in svifauceti %}
+      <div class="col-md-4 col-lg-3 col-sm-6" style="padding-bottom: 30px">
+      <div class="card">
+        <h5 class="card-header text-center" style="padding-top: 5px">{{faucet.title}}</h5>
+          <div class="card-header text-center">
+          <img src="{{ url_for('static', filename = 'faucets/'+ faucet.coin|string +'.jpeg') }}" alt="Card image cap" class="rounded-circle">
+                <p>
+              </div>
+            <div class="card-body">
+                <small><i class="fa fa-star" style="padding-right: 7px"></i>Ocena:       {{faucet.stars}}/5</small><div></div><small><i class="fa fa-money" style="padding-right: 5px"></i>Vrednost po danu:        {{faucet.vrednost}}</small><div></div>
+                <small><i class="fa fa-plus-circle" style="padding-right: 7px"></i>Limit za podizanje:  {{faucet.limit}}</small>
+                <small><i class="fa fa-plus-clock-o" style="padding-right: 7px"></i>Limit za podizanje:  {{faucet.limit}}</small>
+          </div>  
+          <div class="card-footer text-center"><a href="{{faucet.reflink}}"  target="_blank" class="btn btn-warning card-link">Pokupi novčiće</a></div>
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#{{faucet.id}}Modal">
+            Instrukcije
+          </button>
+          <!-- Modal will this fix it?-->
+              <div class="modal fade" id="{{faucet.id}}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">{{faucet.title}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body text-center">
+                       <img src="{{ url_for('static', filename = 'faucets/'+ faucet.coin|string +'.jpeg') }}" alt="Card image cap" class="rounded-circle">
+                       <p>{{faucet.info|safe}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <!--ENDMODAL-->
+      </div>
+    </div>
+{% endfor %}
+  </div>
+
+{% endblock %}
