@@ -123,7 +123,7 @@ def svidropovisrb():
 @app.route('/')
 def svidropovi():
 	svidropovi = Dropovi.query.filter_by(active=True)
-	return render_template('index.html', svidropovi=svidropovi)
+	return render_template('pocetna.html', svidropovi=svidropovi)
 
 #All Faucets
 @app.route('/faucets')
