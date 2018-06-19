@@ -290,7 +290,7 @@ def add_faucet():
 		#
 		# Call init self for form data
 		novi3 = Fauceti(form.id.data, form.title.data, form.stars.data, form.info.data, form.vrednost.data, form.reflink.data, form.limit.data, form.period.data, form.coin.data, form.active.data)
-		db.session.add(novi2)
+		db.session.add(novi3)
 		db.session.commit()
 
 		flash('Faucet Created', 'success')
