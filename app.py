@@ -101,7 +101,7 @@ class Fauceti(db.Model):
 	coin = db.Column('coin', db.String(30))
 
 
-	def __init__(self, id, title, stars, info, vrednost, reflink, limit, period, active, coin):
+	def __init__(self, id, title, stars, info, vrednost, reflink, limit, period, coin, active):
 		self.id = id
 		self.title = title
 		self.stars = stars
