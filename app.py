@@ -289,7 +289,7 @@ def add_faucet():
 		# Ne radi form.validate() iz nekog razloga
 		#
 		# Call init self for form data
-		novi2 = Fauceti(form.id.data, form.fulltitle.data, form.shorttitle.data, form.stars.data, form.tutorijala.data, form.tutorijalb.data, form.dollarvalue.data, form.tokenammount.data, form.reflink.data, form.active.data, form.telegram.data, form.mail.data, form.twitter.data, form.facebook.data, form.bitcointalk.data, form.reddit.data, form.kyc.data, form.other.data)
+		novi3 = Fauceti(form.id.data, form.title.data, form.stars.data, form.info.data, form.vrednost.data, form.reflink.data, form.limit.data, form.period.data, form.coin.data, form.active.data)
 		db.session.add(novi2)
 		db.session.commit()
 
