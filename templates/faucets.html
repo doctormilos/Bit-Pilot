@@ -18,7 +18,7 @@
           </div>  
           <div class="card-footer text-center"><a href="{{faucet.reflink}}"  target="_blank" class="btn btn-warning card-link">Pokupi novčiće</a></div>
           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#{{faucet.id}}Modal">
-            Instrukcije
+            Info
           </button>
           <!-- Modal will this fix it?-->
               <div class="modal fade" id="{{faucet.id}}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,6 +33,7 @@
                     <div class="modal-body text-center">
                        <img src="{{ url_for('static', filename = 'faucets/'+ faucet.coin|string +'.jpeg') }}" alt="Card image cap" class="rounded-circle">
                        <p>{{faucet.info|safe}}</p>
+                       <div class="card-footer text-center"><a href="{{faucet.reflink}}"  target="_blank" class="btn btn-warning card-link">Pokupi novčiće</a></div>
                     </div>
                   </div>
                 </div>
